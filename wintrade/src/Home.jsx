@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './styles.css';
 
 function Home() {
@@ -15,7 +15,6 @@ function Home() {
 
   const fetchData = async (city) => {
     let URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-    
     try {
       const response = await fetch(URL);
       const jsonData = await response.json();
@@ -39,11 +38,7 @@ function Home() {
     }
   };
 
-  useEffect(() => {
-    fetchData(data.city);
-  }, [data.city]); 
-
-  const handleCityChange = () => {
+  const handleSearch = () => {
     fetchData(cityInput);
   };
 
@@ -51,8 +46,8 @@ function Home() {
     <div className="card-container">
       <div className="weather">
         <div className="search">
-          <input type="text" placeholder="Enter City Name" onChange={e => e.target.value}></input>
-          <button><img src="/images/search.svg" alt="search symbol" onClick={handleCityChange}/></button>
+          <input type="text" placeholder="Enter City Name" onChange={e => setCityInput(e.target.value)}></input>
+          <button><img src="/images/search.svg" alt="search symbol" onClick={handleSearch}/></button>
         </div>
         <div className="info">
           <h1>{data.temp}</h1>
