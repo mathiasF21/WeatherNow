@@ -8,7 +8,8 @@ function Home() {
     humidity: 10,
     speed: 2,
     feels_like: 0,
-    country: 'England' 
+    country: 'England',
+    image_icon: ''
   });
   const [cityInput, setCityInput] = useState('');
   const API_KEY = "82f396db6021e1881e967d4310ca9fcb"; 
@@ -27,7 +28,8 @@ function Home() {
           speed: jsonData.wind.speed,
           city: jsonData.name,
           feels_like: jsonData.main.feels_like,
-          country: jsonData.sys.country
+          country: jsonData.sys.country,
+          image_icon: jsonData.weather[0].icon
         });
         console.log(jsonData);
       } else {
@@ -50,8 +52,11 @@ function Home() {
           <button><img src="/images/search.svg" alt="search symbol" onClick={handleSearch}/></button>
         </div>
         <div className="info">
-          <h1>{data.temp}</h1>
-          <h2>{data.city}</h2>
+          <img src={`https://openweathermap.org/img/wn/${data.image_icon}.png`} alt="weather icon"/>
+          <div className="main-numbers">
+            <h1>{data.temp}</h1>
+            <h2>{data.city}</h2>
+          </div>
         </div>
         <div className="details">
           <div className="col">

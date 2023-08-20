@@ -86,3 +86,20 @@ img {
 .about-container {
     margin: 10px;
 }
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.info img {
+    margin-right: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.main-numbers {
+    margin-left: 10px;
+}
