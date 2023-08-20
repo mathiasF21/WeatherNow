@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Home';
 import About from './About';
-import Pricing from './Pricing';
 import Contact from './Contact';
 
 export default function BaseNavbar() {
@@ -16,14 +15,12 @@ export default function BaseNavbar() {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
             <Nav.Link as={Link} to="/about">About</Nav.Link>
-            <Nav.Link as={Link} to="/pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
       <Routes>
         <Route path="/about" element={<About />} />
-        <Route path="/pricing" element={<Pricing />} />
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
