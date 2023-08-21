@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import './styles.css';
+import Forecast from "./Forecast";
 
 function Home() {
   const [data, setData] = useState({
-    temp: 10,
-    city: 'London',
-    humidity: 10,
-    speed: 2,
+    temp: 0,
+    city: 'loading...',
+    humidity: 0,
+    speed: 0,
     feels_like: 0,
-    country: 'England',
+    description: 'loading...',
     image_icon: ''
   });
   const [cityInput, setCityInput] = useState('');
@@ -28,7 +29,7 @@ function Home() {
           speed: jsonData.wind.speed,
           city: jsonData.name,
           feels_like: jsonData.main.feels_like,
-          country: jsonData.sys.country,
+          description: jsonData.weather[0].description,
           image_icon: jsonData.weather[0].icon
         });
         console.log(jsonData);
@@ -45,53 +46,56 @@ function Home() {
   };
 
   return (
-    <div className="card-container">
-      <div className="weather">
-        <div className="search">
-          <input type="text" placeholder="Enter City Name" onChange={e => setCityInput(e.target.value)}></input>
-          <button><img src="/images/search.svg" alt="search symbol" onClick={handleSearch}/></button>
-        </div>
-        <div className="info">
-          <img src={`https://openweathermap.org/img/wn/${data.image_icon}.png`} alt="weather icon"/>
-          <div className="main-numbers">
-            <h1>{data.temp}</h1>
-            <h2>{data.city}</h2>
+    <>
+      <div className="card-container">
+        <div className="weather">
+          <div className="search">
+            <input type="text" placeholder="Enter City Name" onChange={e => setCityInput(e.target.value)}></input>
+            <button><img src="/images/search.svg" alt="search symbol" onClick={handleSearch}/></button>
           </div>
-        </div>
-        <div className="details">
-          <div className="col">
-              <img src="/images/humidity.svg" alt="humidity"/>
-              <div>
-                <p>{data.humidity}</p>
-                <p>Humidity</p>
-              </div>
+          <div className="info">
+            <img src={`https://openweathermap.org/img/wn/${data.image_icon}.png`} alt="loading..."/>
+            <div className="main-numbers">
+              <h1>{data.temp}°C</h1>
+              <h2>{data.city}</h2>
+            </div>
           </div>
-          <div className="col">
-              <img src="/images/wind.svg" alt="wind speed"/>
-              <div>
-                <p>{data.speed}</p>
-                <p>Wind Speed</p>
-              </div>
+          <div className="details">
+            <div className="col">
+                <img src="/images/humidity.svg" alt="humidity"/>
+                <div>
+                  <p>{data.humidity}</p>
+                  <p>Humidity</p>
+                </div>
+            </div>
+            <div className="col">
+                <img src="/images/wind.svg" alt="wind speed"/>
+                <div>
+                  <p>{data.speed}</p>
+                  <p>Wind Speed</p>
+                </div>
+            </div>
           </div>
-        </div>
-        <div className="details">
-          <div className="col">
-              <img src="/images/feels_like.svg" alt="humidity"/>
-              <div>
-                <p>{data.feels_like}</p>
-                <p>Feels like</p>
-              </div>
-          </div>
-          <div className="col">
-              <img src="/images/home.svg" alt="wind speed"/>
-              <div>
-                <p>{data.country}</p>
-                <p>Country</p>
-              </div>
+          <div className="details">
+            <div className="col">
+                <img src="/images/feels_like.svg" alt="humidity"/>
+                <div>
+                  <p>{data.feels_like}°C</p>
+                  <p>Feels like</p>
+                </div>
+            </div>
+            <div className="col">
+                <img src="/images/home.svg" alt="wind speed"/>
+                <div>
+                  <p>{data.description}</p>
+                  <p>Description</p>
+                </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <Forecast city={cityInput}/>
+    </>
   );
 }
 

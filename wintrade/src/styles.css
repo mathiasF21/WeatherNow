@@ -103,3 +103,7 @@ img {
 .main-numbers {
     margin-left: 10px;
 }
+
+.contact-container {
+    display: flex;
+} 
