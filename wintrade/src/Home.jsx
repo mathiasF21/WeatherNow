@@ -13,6 +13,7 @@ function Home() {
     image_icon: ''
   });
   const [cityInput, setCityInput] = useState('');
+  const [showForecast, setShowForecast] = useState(false);
   const API_KEY = "82f396db6021e1881e967d4310ca9fcb"; 
 
   const fetchData = async (city) => {
@@ -43,6 +44,7 @@ function Home() {
 
   const handleSearch = () => {
     fetchData(cityInput);
+    setShowForecast(true);
   };
 
   return (
@@ -64,15 +66,15 @@ function Home() {
             <div className="col">
                 <img src="/images/humidity.svg" alt="humidity"/>
                 <div>
-                  <p>{data.humidity}</p>
+                  <p>{data.humidity}%</p>
                   <p>Humidity</p>
                 </div>
             </div>
             <div className="col">
                 <img src="/images/wind.svg" alt="wind speed"/>
                 <div>
-                  <p>{data.speed}</p>
-                  <p>Wind Speed</p>
+                  <p>{data.speed} meter/sec</p>
+                  <p>Wind Speed</p> 
                 </div>
             </div>
           </div>
@@ -94,7 +96,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Forecast city={cityInput}/>
+      {showForecast && <Forecast city={cityInput} />}
     </>
   );
 }
