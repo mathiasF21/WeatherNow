@@ -1,7 +1,109 @@
-* {
-    box-sizing: border-box;
+body {
+    background-color: rgb(127, 159, 255);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    background-image: url("../public/images/mountain.jpg");
+    background-size: cover;
 }
 
-body {
+.card-container {
     margin: 0;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    text-align: center;
 }
+
+.weather {
+    width: 380px;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 10px;
+    background-color: #0530ad;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search button img {
+    width: 40px;
+    height: 40px;
+}
+
+.search button {
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: lightgray;
+}
+
+.details {
+    display: flex;
+    text-align: center;
+}
+
+.search input {
+    flex: 1;
+    margin-right: 10px ;
+    border: none;
+    outline: 0;
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.details img {
+    width: 70px;
+    height: 70px;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
+
+.contact-info {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.info {
+    margin-top: 25px;
+}
+
+.email-container {
+    display: flex;
+}
+
+.about-container {
+    margin: 10px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.info img {
+    margin-right: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.main-numbers {
+    margin-left: 10px;
+}
+
+.contact-container {
+    display: flex;
+} 
