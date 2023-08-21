@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function Forecast(props) {
@@ -25,8 +24,8 @@ function Forecast(props) {
       }
     };
     fetchForecast(); 
-  }, []);
-    console.log(dayForecast);
+  }, [props.city]);
+  
     return (
       <div className="day-container">
       {dayForecast.map((forecast, index) => (
