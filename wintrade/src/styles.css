@@ -127,3 +127,15 @@ img {
     opacity: 0.9;
     margin: 10px;
 }
+
+.about-container {
+    background-color: #0530ad;
+    text-align: center;
+    margin: auto;
+    color: white;
+    width: 50%;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
